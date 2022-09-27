@@ -67,7 +67,14 @@ int Human::Defend(int DmgTaken)
 
 void Human::AddCoins(int Amount)
 {
-	pouch += Amount;
+	if (pouch == 0 && Amount <= 0)
+	{
+		return;
+	}
+	else
+	{
+		pouch += Amount;
+	}
 }
 
 int Human::GetCoins()
