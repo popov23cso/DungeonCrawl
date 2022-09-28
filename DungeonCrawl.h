@@ -5,6 +5,7 @@
 #include "Human.h"
 #include "HealingPotion.h"
 #include "OrcChief.h"
+#include "GoblinThief.h"
 #include <ctime>
 
 
