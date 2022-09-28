@@ -66,6 +66,7 @@ int DungeonCrawl::Step()
 			return 0;
 		}
 	}
+
 	if (floor > 2)
 	{
 		int dice = rand() % 20 + 1;
@@ -76,7 +77,8 @@ int DungeonCrawl::Step()
 			Inventory.push_back(tmp);
 		}
 	}
-	if (floor >= 5 && floor % 5 == 0 && floor != 20)
+
+	if (floor >= 5 && floor % 5 == 0 && floor != 10)
 	{
 		MerchantEncounter();
 		score += 10 * floor;
@@ -84,7 +86,26 @@ int DungeonCrawl::Step()
 		return 1;
 	}
 
-	if (floor == 20)
+	if (floor == 8)
+	{
+		GoblinThief tmp(20);
+		std::cout << "A sneaky goblin thief attacks you, he steals " << tmp.GetCoins() << "gold from you" << std::endl;
+		PlayerUnit->AddCoins(-tmp.GetCoins());
+		score += 10 * floor;
+		floor++;
+		int result = tmp.Defend(PlayerUnit->Attack());
+		if (result < 0)
+		{
+			return 1;
+		}
+		else
+		{
+			PlayerUnit->AddCoins(result);
+			return 1;
+		}
+	}
+
+	if (floor == 10)
 	{
 		OrcChief tmp;
 		std::cout << "You reach the chamber of the mighty orc chief!" << std::endl;
