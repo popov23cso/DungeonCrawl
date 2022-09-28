@@ -48,8 +48,7 @@ int GoblinThief::GetType()
 
 int GoblinThief::GetCoins()
 {
-	int bonus = rand() % 15 + 1;
-	return StealAmount + bonus;
+	return StealAmount;
 }
 
 
@@ -58,9 +57,10 @@ int GoblinThief::Defend(int DmgTaken)
 	CurrentHealth -= DmgTaken;
 	if (CurrentHealth <= 0)
 	{
-		std::cout << std::endl << "The goblin died " << std::endl;
-		return 0;
+		int bonus = rand() % 15 + 1;
+		std::cout << std::endl << "The goblin died and dropped " << StealAmount + bonus << " gold" << std::endl;
+		return StealAmount + bonus;
 	}
-	std::cout << " the goblin survives the hit and runs away in fear " << CurrentHealth << std::endl;
-	return CurrentHealth;
+	std::cout << " the goblin survives the hit and runs away in fear " << std::endl;
+	return -1;
 }
