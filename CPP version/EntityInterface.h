@@ -5,7 +5,7 @@ protected:
 
 	enum Type
 	{
-		EntityType = 0, HumanType, OrcType, PeasentType, OrcChiefType, GoblinThiefType
+		EntityType = 0, HumanType, OrcType, OrcChiefType, GoblinThiefType
 	};
 	Type InstType;
 public:
