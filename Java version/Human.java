@@ -1,7 +1,7 @@
 
 
 
-class Human extends Entity {
+public class Human extends Entity {
     private int Weapon;
     private int Armor;
     private int Pouch;
@@ -18,7 +18,7 @@ class Human extends Entity {
 
     //text output methods
     public void PrintType() {
-        System.out.println("Im a Human!");
+        System.out.println("human");
     }
 
     public void Print() {
