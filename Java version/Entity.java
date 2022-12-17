@@ -9,7 +9,9 @@ enum Type {
 public abstract class Entity {
 
     protected Type InstType;
-    protected int CurrentHealth, MaxHealth, CoinPouch;
+    protected int CurrentHealth;
+    protected int MaxHealth;
+    protected int CoinPouch;
 
     Entity(Type InstType, int MaxHealth) {
         this.InstType = InstType;
@@ -20,12 +22,11 @@ public abstract class Entity {
 
     //text output methods
     public abstract void PrintType();
-    public abstract void  Print();
+    public abstract void Print();
     
     //getters and setters
-    public abstract int GetType();
+    public abstract Type GetType();
     public abstract int GetCoins();
-    public abstract void Heal();
 
     //gameplay methods
     public abstract int Attack();
