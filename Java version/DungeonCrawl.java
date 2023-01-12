@@ -46,7 +46,28 @@ public class DungeonCrawl {
         int Command;
         System.out.println("Press 1 to start, anything else to quit!");
         Command = SC.nextInt();
-        System.out.println(Command);
-        //TODO complete run method
+        while (Command != 0) {
+            if (Command == 1) {
+                System.out.println("Floor " + Floor + " Score " + Score);
+                if(Step() == 0) {
+                    break;
+                }
+            }
+            else if (Command == 2) {
+                ManageInventory();
+            }
+            else if (Command == 3) {
+                PlayerUnit.Print();
+            }
+            Command = SC.nextInt();
+        }
+        System.out.println("Game over!");
+        System.out.println("Final score:" + Score);
+
+    }
+
+    public int Step() {
+        //TODO implement step method
+        return 0;
     }
 }
