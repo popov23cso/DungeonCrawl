@@ -34,6 +34,10 @@ public class OrcChief extends Entity{
         return CoinDrop;
     }
 
+    public void AddCoins(int Amount) {
+        return;
+    }
+
     //gameplay methods
     public int Attack() {
         if (Rage % 5 != 0) {

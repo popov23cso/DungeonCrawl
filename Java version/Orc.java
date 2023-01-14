@@ -18,8 +18,8 @@ public class Orc extends Entity{
 
 
     public void Print() {
-        System.out.println("This orc's club deals" + Club + 
-        " damage and he has " + MaxHealth + " HP");
+        System.out.println("This orc's club deals " + Club + 
+        " damage and he has " + MaxHealth + " maximum HP");
     }
 
     //getters and setters
@@ -30,6 +30,10 @@ public class Orc extends Entity{
 
     public int GetCoins() {
         return CoinDrop;
+    }
+
+    public void AddCoins(int Amount) {
+        return;
     }
 
     

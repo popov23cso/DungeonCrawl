@@ -36,10 +36,19 @@ public class Human extends Entity {
         return Pouch;
     }
 
+    public void AddCoins(int Amount) {
+        if (Pouch == 0 && Amount <= 0) {
+            return;
+        }
+        else {
+            Pouch += Amount;
+        }
+    }
+
 
     //gameplay methods
     public int Attack() {
-        System.out.println(Name + "hits for: " + Weapon);
+        System.out.println(Name + " hits for: " + Weapon);
         return Weapon;
     }
 
