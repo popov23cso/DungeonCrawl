@@ -27,6 +27,7 @@ public abstract class Entity {
     //getters and setters
     public abstract Type GetType();
     public abstract int GetCoins();
+    public abstract void AddCoins(int Amount);
 
     //gameplay methods
     public abstract int Attack();
