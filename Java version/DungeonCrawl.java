@@ -67,7 +67,28 @@ public class DungeonCrawl {
     }
 
     public int Step() {
-        //TODO implement step method
+        if (Floor == 0 || Floor <= 2) {
+            Orc Enemy = new Orc(25, 30, 50);
+            System.out.println("An enemy appears!");
+            Enemy.Print();
+            if(OneVsOne(Enemy) == 0) {
+                Score += 2 * PlayerUnit.GetCoins();
+                return 0;
+            }
+        }
         return 0;
+    }
+
+    public int OneVsOne(Entity Enemy) {
+        while (true) {
+            if (Enemy.Defend(PlayerUnit.Attack()) <= 0) {
+                PlayerUnit.AddCoins(Enemy.GetCoins());
+                Score += 2 * PlayerUnit.GetCoins();
+                return 1;
+            }
+            if (PlayerUnit.Defend(Enemy.Attack()) <= 0) {
+                return 0;
+            }
+        }
     }
 }
