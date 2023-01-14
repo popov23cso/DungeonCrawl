@@ -11,7 +11,7 @@ public abstract class Item {
     protected String Name;
     ItemType InstType;
 
-    Item(ItemType InstType, String Name) {
+    public Item(ItemType InstType, String Name) {
         this.Name = Name;
         this.InstType = InstType;
     }

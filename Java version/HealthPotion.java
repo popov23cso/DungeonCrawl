@@ -2,7 +2,7 @@
 public class HealthPotion extends Item{
     protected int HealAmount;
 
-    HealthPotion(int HealAmount) {
+    public HealthPotion(int HealAmount) {
         super(ItemType.HealingItem ,"Healing Potion");
         this.HealAmount = HealAmount;
     }

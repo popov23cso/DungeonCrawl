@@ -13,7 +13,7 @@ public abstract class Entity {
     protected int MaxHealth;
     protected int CoinPouch;
 
-    Entity(Type InstType, int MaxHealth) {
+    public Entity(Type InstType, int MaxHealth) {
         this.InstType = InstType;
         this.MaxHealth = MaxHealth;
         this.CurrentHealth = this.MaxHealth;

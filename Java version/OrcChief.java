@@ -6,7 +6,7 @@ public class OrcChief extends Entity{
     private int CoinDrop;
 
 
-    OrcChief(int Mace, int Stomp, int Rage, int CoinDrop, int MaxHealth) {
+    public OrcChief(int Mace, int Stomp, int Rage, int CoinDrop, int MaxHealth) {
         super(Type.OrcChief, MaxHealth);
         this.Mace = Mace;
         this.Stomp = Stomp;

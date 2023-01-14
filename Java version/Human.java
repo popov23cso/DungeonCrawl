@@ -7,7 +7,7 @@ public class Human extends Entity {
     private int Pouch;
     private String Name;
 
-    Human(int Weapon, int Armor, String Name, int MaxHealth) {
+    public Human(int Weapon, int Armor, String Name, int MaxHealth) {
         super(Type.Human, MaxHealth);
         this.Weapon = Weapon;
         this.Armor = Armor;

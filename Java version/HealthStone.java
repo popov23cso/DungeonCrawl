@@ -1,7 +1,7 @@
 public class HealthStone extends Item {
     protected int IncreaseAmount;
 
-    HealthStone(int IncreaseAmount) {
+    public HealthStone(int IncreaseAmount) {
         super(ItemType.MaxHPIncreaseItem ,"Health Stone");
         this.IncreaseAmount = IncreaseAmount;
     }

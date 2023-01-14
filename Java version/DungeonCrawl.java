@@ -9,7 +9,7 @@ public class DungeonCrawl {
     private int Floor;
     private Scanner SC;
 
-    DungeonCrawl() {
+    public DungeonCrawl() {
         PlayerUnit = null;
         Score = 0;
         Floor = 0;

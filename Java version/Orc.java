@@ -4,7 +4,7 @@ public class Orc extends Entity{
 	private int CoinDrop;
 
 
-    Orc(int Club, int CoinDrop, int MaxHealth) {
+    public Orc(int Club, int CoinDrop, int MaxHealth) {
         super(Type.Orc, MaxHealth);
         this.Club = Club;
         this.CoinDrop = CoinDrop;
