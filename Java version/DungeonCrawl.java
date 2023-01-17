@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
 
 public class DungeonCrawl {
     private Entity PlayerUnit;
@@ -76,7 +77,21 @@ public class DungeonCrawl {
                 return 0;
             }
         }
-        return 0;
+        if (Floor > 2) {
+            Random Dice = new Random();
+            int Roll = Dice.nextInt(20) + 1;
+            if (Roll % 5 == 0) {
+                System.out.println("You stumble upon a healing potion!");
+                HealthPotion tmp = new HealthPotion(25);
+                Inventory.add(tmp);
+            }
+        }
+        if (Floor >= 5 && Floor % 5 == 0 && Floor != 10) {
+            MerchantEncounter();
+            Score += 10 * Floor;
+        }
+        Floor ++;
+        return 1;
     }
 
     public int OneVsOne(Entity Enemy) {
@@ -91,4 +106,34 @@ public class DungeonCrawl {
             }
         }
     }
+
+
+    public void MerchantEncounter() {
+        System.out.println("You encounter the friendly gnome merchant!" + 
+        " Theese are his wares: ");
+        System.out.println("1. Health potion(heals for 25 HP) - 25 gold");
+        System.out.println("2. Health crystal(increases max HP by 25) - 50 gold");
+        if (Floor == 20) {
+            System.out.println("3. Steel greatsword(+ 40 strength) - 100 gold");
+        }
+        System.out.println("Would you like to buy something?");
+        int Command = SC.nextInt();
+        if (Command == 1) {
+            System.out.println("Type the index of the item that you want to buy: ");
+            Command = SC.nextInt();
+            if (Command == 1) {
+                if (PlayerUnit.GetCoins() >= 25) {
+                    PlayerUnit.AddCoins(-25);
+                    HealthPotion tmp = new HealthPotion(25);
+                    Inventory.add(tmp);
+                    System.out.println("Bought health potion!");
+                }
+                else {
+                    System.out.println("You dont have enough gold !");
+                }
+            }
+        }
+        System.out.println("Left the merchant!");
+    }
+    //TODO add more options for buying
 }
