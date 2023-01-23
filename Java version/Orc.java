@@ -55,7 +55,7 @@ public class Orc extends Entity{
     }
 
 
-    public void UseItem(int ItemID, int Effect) {
+    public void UseItem(ItemType Type, int Effect) {
 
     }
 

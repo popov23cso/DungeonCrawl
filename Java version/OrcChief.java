@@ -63,7 +63,7 @@ public class OrcChief extends Entity{
         return CurrentHealth;
     }
 
-    public void UseItem(int ItemID, int Effect) {
+    public void UseItem(ItemType Type, int Effect) {
         
     }
     
