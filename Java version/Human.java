@@ -66,8 +66,18 @@ public class Human extends Entity {
         return CurrentHealth;
     }
 
-    public void UseItem(int ItemID, int Effect) {
-
+    public void UseItem(ItemType Type, int Effect) {
+        if(Type == ItemType.HealingItem) {
+            CurrentHealth += Effect;
+            if (CurrentHealth > MaxHealth) {
+                CurrentHealth = MaxHealth;
+                return;
+            }
+        }
+        else if (Type == ItemType.MaxHPIncreaseItem) {
+            MaxHealth += Effect;
+            return;
+        }
     }
 
 }
