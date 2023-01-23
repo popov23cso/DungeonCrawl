@@ -132,8 +132,17 @@ public class DungeonCrawl {
                     System.out.println("You dont have enough gold !");
                 }
             }
+            if (Command == 2) {
+                if(PlayerUnit.GetCoins() >= 50) {
+                    PlayerUnit.AddCoins(-50);
+                    PlayerUnit.UseItem(ItemType.MaxHPIncreaseItem, 25);
+                    System.out.println("Increased max HP by 25!");
+                }
+                else {
+                    System.out.println("You dont have enough gold !");
+                }
+            }
         }
         System.out.println("Left the merchant!");
     }
-    //TODO add more options for buying
 }
