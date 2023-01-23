@@ -32,7 +32,7 @@ public abstract class Entity {
     //gameplay methods
     public abstract int Attack();
     public abstract int Defend(int Dmgtaken);
-    public abstract void UseItem(int ItemID, int Effect);
+    public abstract void UseItem(ItemType Type, int Effect);
 
 
 
