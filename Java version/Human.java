@@ -22,8 +22,8 @@ public class Human extends Entity {
     }
 
     public void Print() {
-        System.out.println(Name + " has" + Weapon + " damage "
-         + Armor + " armor" + MaxHealth + " health");
+        System.out.println(Name + " has " + Weapon + " damage "
+         + Armor + " armor " + MaxHealth + " health");
     }
 
 
