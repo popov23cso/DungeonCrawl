@@ -181,7 +181,7 @@ public class DungeonCrawl {
         System.out.println("Left the merchant!");
     }
 
-    void UseItem(int InventorySlot) {
+    public void UseItem(int InventorySlot) {
         PlayerUnit.UseItem(Inventory.get(InventorySlot).GetType(), Inventory.get(InventorySlot).GetEffect());
         Inventory.remove(InventorySlot);
     }
