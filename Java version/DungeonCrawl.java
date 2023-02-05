@@ -27,8 +27,43 @@ public class DungeonCrawl {
         System.out.println("Press 1 to advance to the next floor, in each floor you will encounter " + 
         "enemies you must defeat so you can advance");
     }
+
+
 	public void ManageInventory() {
-        //TODO after implementing adding items to inventory
+        if(Inventory.isEmpty() == true) {
+            System.out.println("Your inventory is empty!");
+            System.out.println("Your gold pouch has " + PlayerUnit.GetCoins() + " gold in it");
+            return;
+        }
+        System.out.println("Theese are the items in your inventory: ");
+        int i = 1;
+        for (Item item : Inventory) {
+            System.out.print(i + " ");
+            item.PrintEffect();
+            i ++;
+        }
+        System.out.println("Your gold pouch has " + PlayerUnit.GetCoins() + " gold in it");
+        System.out.println("Would you like to use an item?");
+        int Command;
+        Command = SC.nextInt();
+        while (Command != 0) {
+            System.out.println("Type the index in inventory of the item: ");
+            Command = SC.nextInt();
+            if (Command == 0) {
+                break;
+            }
+            else if (Command > Inventory.size()) {
+                System.out.println("There is no item with such index in inventory!");
+                continue;
+            }
+            else {
+                UseItem(Command - 1);
+                System.out.println("Used the item!");
+                break;
+            }
+
+        }
+        System.out.println("Inventory closed !");
     }
 
     //gameplay methods
@@ -144,5 +179,10 @@ public class DungeonCrawl {
             }
         }
         System.out.println("Left the merchant!");
+    }
+
+    void UseItem(int InventorySlot) {
+        PlayerUnit.UseItem(Inventory.get(InventorySlot).GetType(), Inventory.get(InventorySlot).GetEffect());
+        Inventory.remove(InventorySlot);
     }
 }
