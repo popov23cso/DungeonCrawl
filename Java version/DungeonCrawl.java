@@ -121,9 +121,25 @@ public class DungeonCrawl {
                 Inventory.add(tmp);
             }
         }
+        //Encounter a merchant every 5 floors 
         if (Floor >= 5 && Floor % 5 == 0 && Floor != 10) {
             MerchantEncounter();
             Score += 10 * Floor;
+            Floor ++;
+            return 1;
+        }
+        if (Floor == 8) {
+            GoblinThief tmp = new GoblinThief(20);
+            System.out.println("A sneaky goblin manages to steal " + tmp.GetCoins() + " gold!");
+            PlayerUnit.AddCoins(-tmp.GetCoins());
+            int FightResult = tmp.Defend(PlayerUnit.Attack());
+            if (FightResult > 0) {
+                PlayerUnit.AddCoins(FightResult);
+                
+            }
+            Score += 10 * Floor;
+            Floor ++;
+            return 1;
         }
         Floor ++;
         return 1;
@@ -148,6 +164,7 @@ public class DungeonCrawl {
         " Theese are his wares: ");
         System.out.println("1. Health potion(heals for 25 HP) - 25 gold");
         System.out.println("2. Health crystal(increases max HP by 25) - 50 gold");
+        System.out.println("You have " + PlayerUnit.GetCoins() + " gold");
         if (Floor == 20) {
             System.out.println("3. Steel greatsword(+ 40 strength) - 100 gold");
         }
