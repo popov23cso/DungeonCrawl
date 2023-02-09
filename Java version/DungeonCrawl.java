@@ -112,6 +112,7 @@ public class DungeonCrawl {
                 return 0;
             }
         }
+
         if (Floor > 2) {
             Random Dice = new Random();
             int Roll = Dice.nextInt(20) + 1;
@@ -121,6 +122,7 @@ public class DungeonCrawl {
                 Inventory.add(tmp);
             }
         }
+
         //Encounter a merchant every 5 floors 
         if (Floor >= 5 && Floor % 5 == 0 && Floor != 10) {
             MerchantEncounter();
@@ -128,6 +130,7 @@ public class DungeonCrawl {
             Floor ++;
             return 1;
         }
+
         if (Floor == 8) {
             GoblinThief tmp = new GoblinThief(20);
             System.out.println("A sneaky goblin manages to steal " + tmp.GetCoins() + " gold!");
@@ -141,6 +144,22 @@ public class DungeonCrawl {
             Floor ++;
             return 1;
         }
+
+        if (Floor == 10) {
+            OrcChief tmp = new OrcChief(30, 50, 1, 150, 1000);
+            System.out.println("You reach the chamber of the mighty orc chief!");
+            tmp.Print();
+            if (OneVsOne(tmp) == 0) {
+                Score += PlayerUnit.GetCoins();
+                return 0;
+            }
+            else {
+                System.out.println("Congratulations you beat the game!");
+                Score += 3 * PlayerUnit.GetCoins();
+                return 0;
+            }
+        }
+
         Floor ++;
         return 1;
     }
