@@ -41,13 +41,14 @@ public class OrcChief extends Entity{
     //gameplay methods
     public int Attack() {
         if (Rage % 5 != 0) {
-            System.out.println("The chief hits for " + Mace);
+            System.out.print("The chief hits for " + Mace);
             Rage++;
             return Mace;
         }
         else {
-            System.out.println("The chief gets really angry and stomps the ground dealing " +
+            System.out.print("The chief gets really angry and stomps the ground dealing " +
             Stomp + " damage");
+            Rage++;
             return Stomp;
         }
     }
@@ -56,10 +57,11 @@ public class OrcChief extends Entity{
     public int Defend(int Dmgtaken) {
         CurrentHealth -= Dmgtaken;
         if (CurrentHealth <= 0) {
-            System.out.println("The chief died ");
+            System.out.println(" and the chief dies!");
             return 0;
         }
         System.out.println(" and the chief's HP is now " + CurrentHealth);
+        System.out.println("");
         return CurrentHealth;
     }
 
