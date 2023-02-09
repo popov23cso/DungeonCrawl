@@ -23,7 +23,7 @@ public class Human extends Entity {
 
     public void Print() {
         System.out.println(Name + " has " + Weapon + " damage "
-         + Armor + " armor " + MaxHealth + " health");
+         + Armor + " armor " + CurrentHealth + "/" +  MaxHealth + " health");
     }
 
 
@@ -48,13 +48,14 @@ public class Human extends Entity {
 
     //gameplay methods
     public int Attack() {
-        System.out.println(Name + " hits for: " + Weapon);
+        System.out.print(Name + " hits for: " + Weapon);
         return Weapon;
     }
 
     public int Defend(int Dmgtaken) {
         if (Armor >= Dmgtaken) {
-            System.out.println(" but it is too weak to damage you!");
+            System.out.print(" but it is too weak to damage you!");
+            System.out.println("");
             return CurrentHealth;
         }
         CurrentHealth -= (Dmgtaken - Armor);
